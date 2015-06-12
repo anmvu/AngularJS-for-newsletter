@@ -1,0 +1,1 @@
+var newsletter = angular.module('newsApp',['ngSanitize','xeditable']);

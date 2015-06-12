@@ -7,8 +7,10 @@
 	<link href="css/news.css" rel="stylesheet">
 	<link href="css/xeditable.css" rel="stylesheet">
 	<!-- Javascript -->
-	<script src="js/angular.js"></script>
-	<script src="js/newsletter.js"></script>
+	<!--<script src="angular/angular.js"></script>
+	<script src="angular/angular.min.js"></script>-->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.min.js"></script>
 	<script src="js/xeditable.min.js"></script>
 </head>
 
@@ -22,22 +24,17 @@
 		</ul>
 	</div>
 	
-	<div id="main">
-		<div class="header"><img src="https://ci4.googleusercontent.com/proxy/J5H7s6ByCuKyEi34upkJjSoIC-5-76F4p9JMauXj1ttM73u1X0cECHTls1GpGiqEixhRW8iQ7YsPLhEjGU8Dz5Jiyw7aDtGTHJSm5ZdPcEoybuXTQ6iUoWkF2yw6Qd8eYsRbTQKKPxHabdLU=s0-d-e1-ft#http://research.poly.edu/~emailmarket/admin/temp/templates/20/nyu_engineering_logo.png" width="223" height="30" alt="nyu_engineering_logo.png" title="nyu_engineering_logo.png" class="CToWUd">
+	<div id="main" ng-app="newsApp">
+		<div class="header">
+			<img src="https://ci4.googleusercontent.com/proxy/J5H7s6ByCuKyEi34upkJjSoIC-5-76F4p9JMauXj1ttM73u1X0cECHTls1GpGiqEixhRW8iQ7YsPLhEjGU8Dz5Jiyw7aDtGTHJSm5ZdPcEoybuXTQ6iUoWkF2yw6Qd8eYsRbTQKKPxHabdLU=s0-d-e1-ft#http://research.poly.edu/~emailmarket/admin/temp/templates/20/nyu_engineering_logo.png" width="223" height="30" alt="nyu_engineering_logo.png" title="nyu_engineering_logo.png" class="headr-img">
 		</div>
-		<div class = "section">
-			<h2>Faculty News</h2>
-			<h3><a target="_blank" href="http://engineering.nyu.edu/news/2015/05/29/memoriam-eli-pearce">In
-			Memoriam: Eli Pearce</a></h3>
-			<p style="margin:0;font-weight:bold">NYU Newsroom</p>
-			<p style="margin-top:0.5em">When <strong>Professor Eli Pearce</strong>
-			passed away on May 19, 2015, a slice of Poly history passed along with him.
-			Pearce had been affiliated with the school, then known as the Polytechnic
-			Institute of Brooklyn, since the mid-1950s, when he conducted his doctoral
-			studies in chemistry here. As a student, he learned with such luminaries as
-			Herman Frances Mark, who is often called the Father of Polymer Science, and
-			Charles Overberger, another influential chemist who helped establish the
-			study of polymers as a major sub-discipline.</p>
+		<div class = "section" ng-controller="newsController">
+			<h2 id="section">{{sections.section}}</h2>
+			<div class = "article" ng-repeat="article in sections.articles">
+				<h3 id="title" ng-bind-html="article.title"></h3>
+				<p id="publisher">{{article.publisher}}</p>
+				<p id="descr" ng-bind-html="article.description"></p>
+			</div>
 		</div>
 		<div class="section">
 			<h2 >Institution News</h2>
@@ -59,7 +56,9 @@
 
 	<!-- Jquery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	
-	
+	<!-- modules -->
+	<script src="js/app.js"></script>
+	<!-- controllers -->
+	<script src="js/newsletter.js"></script>
 </body>
 </html>

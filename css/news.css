@@ -1,7 +1,7 @@
 #convenient-buttons{
 	background: #57068c;
-	width: 50%;
 	padding: 5px;
+	margin-right: 20px;
 	border-radius: 10px;
 	display: inline-block;
 }
@@ -48,6 +48,10 @@
 	background-color:#57068c;
 }
 
+.headr-img{
+	padding-left:15px;
+}
+
 .section{
 	font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
 	padding:15px 0px 15px 0px;
@@ -63,6 +67,11 @@ h2{
 	color:#7bc143;
 }
 
-h3{
-	1.1
+#publisher{
+	margin:0;
+	font-weight:bold;
+}
+
+#descr{
+	margin-top:0.5em
 }
