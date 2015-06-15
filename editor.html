@@ -1,0 +1,40 @@
+<div class="article editor">
+	<h3>Add article</h3>
+	<div>
+		<form role="form" ng-submit="addArticle()">
+			<div>
+				<label for="articleName">Article Name</label>
+				<div>
+					<input type="text" ng-model="sections.articles.temp.title" placeholder="Faculty News">
+				</div>
+			</div>
+			<div>
+				<label for="articleLink"> Article Link</label>
+				<div>
+					<input type="text"ng-model="sections.articles.temp.link" placeholder="htt://engineering.nyu.edu">
+				</div>
+			</div>
+			<div>
+				<label for="articlePub"> Publisher </label>
+				<div>
+					<input type="text"ng-model="sections.articles.temp.publisher" placeholder="NYU">
+				</div>
+			</div>
+			<div>
+				<label for="articleOrgTitle"> Original Title</label>
+				<div>
+					<input type="text"ng-model="sections.articles.temp.orig_title" placeholder="Top 5">
+				</div>
+			</div>
+			<div>
+				<label for="articleDescr"> Description</label>
+				<div>
+					<input type="text"ng-model="sections.articles.temp.description" placeholder="We are number 1!">
+				</div>
+			</div>
+			<div>
+				<div>
+					<button type="submit">Add</button>
+				</div>
+			</div>
+		</form>

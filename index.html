@@ -3,18 +3,18 @@
 
 <head>
 	<title>Newsletter</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- stylesheet -->
 	<link href="css/news.css" rel="stylesheet">
 	<link href="css/xeditable.css" rel="stylesheet">
 	<!-- Javascript -->
-	<script src="js/angular.js"></script>
-	<script src="js/newsletter.js"></script>
+	<!--<script src="angular/angular.js"></script>
+	<script src="angular/angular.min.js"></script>-->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.min.js"></script>
 	<script src="js/xeditable.min.js"></script>
 </head>
 
-<body ng-app="newsApp">
+<body>
 	<!-- Menu Bar -->
 	<div id="menu-bar">
 		<ul id="convenient-buttons">
@@ -23,120 +23,31 @@
 			<li><a href=# id="export">Send to Server</a></li>
 		</ul>
 	</div>
-	<div id="main">
-		<table align="center">
-			<tbody>
-				<tr>
-					<td bgcolor="#ffffff" align="center">
-						<table style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;padding:0;width:100%;max-width:800px" cellpadding="0" cellspacing="0" align ="center">
-							<tbody>
-								<tr>
-									<td bgcolor="#57068c" style="padding:15px" class="header"><img src="https://ci4.googleusercontent.com/proxy/J5H7s6ByCuKyEi34upkJjSoIC-5-76F4p9JMauXj1ttM73u1X0cECHTls1GpGiqEixhRW8iQ7YsPLhEjGU8Dz5Jiyw7aDtGTHJSm5ZdPcEoybuXTQ6iUoWkF2yw6Qd8eYsRbTQKKPxHabdLU=s0-d-e1-ft#http://research.poly.edu/~emailmarket/admin/temp/templates/20/nyu_engineering_logo.png" width="223" height="30" alt="nyu_engineering_logo.png" title="nyu_engineering_logo.png" class="CToWUd">
-									</td>
-								</tr>
-								<tr>
-									<td class="section">
-										<h2>Faculty News</h2>
-										<h3><a target="_blank" href="http://engineering.nyu.edu/news/2015/05/29/memoriam-eli-pearce">In
-									Memoriam: Eli Pearce</a></h3>
-										<p style="margin:0;font-weight:bold">NYU Newsroom</p>
-										<p style="margin-top:0.5em">When <strong>Professor Eli Pearce</strong>
-									passed away on May 19, 2015, a slice of Poly history passed along with him.
-									Pearce had been affiliated with the school, then known as the Polytechnic
-									Institute of Brooklyn, since the mid-1950s, when he conducted his doctoral
-									studies in chemistry here. As a student, he learned with such luminaries as
-									Herman Frances Mark, who is often called the Father of Polymer Science, and
-									Charles Overberger, another influential chemist who helped establish the
-									study of polymers as a major sub-discipline.</p>
-									</td>
-								</tr>
-								<tr>
-									<td class="section">
-										<h2 >Institution News</h2>
-										<h3 ><a target="_blank" href="http://www.master-of-finance.org/best/great-master-of-financial-engineering-programs/" >25
-										Great Master of Financial Engineering Programs 2015</a></h3>
-										<p style="margin:0;font-weight:bold">Master of Finance</p>
-										<p style="margin:0.5em 0"><em><strong>5. Polytechnic Institute of New
-										York University</strong></em></p>
-										<p style="margin-top:0.5em">The MS in Financial Engineering is a
-										33-credit program that can be completed either full-time or part-time.
-										Students are required to complete an applied lab and a capstone experience
-										which can be an internship, project or thesis. Students have the
-										opportunity to complete the Bloomberg Essentials Online Training Program,
-										which fulfills a requirement for graduation. The NYU School of Engineering
-										has almost a 90% post-graduation job placement rate.</p>
-									</td>
-								</tr>
-								<tr>
-									<td class="section">
-										<h2 >Student News</h2>
-										<h3 ><a target="_blank" href="http://www.themarysue.com/game-changer-catt-small/" >Game Changer:
-										Game Maker &amp; UX Designer Catt Small talks Multifaceted Skill-sets,
-										Interactive Technology and Diverse Industries</a></h3>
-										<p style="margin:0;font-weight:bold">The Mary Sue</p>
-										<p style="margin:0.5em 0"><em><strong>Cat Small</strong> (MS, Integrated
-										Digital Media) interview on the <strong>Code Liberation
-										Foundation</strong></em></p>
-										<p style="margin-top:0.5em">It was a total accident! I just kept making
-										games and talking to people about making games. Over time, I naturally grew
-										a network of people and found myself attending many small and large
-										industry events. At some point <strong>Phoenix Perry, a professor at NYU
-										Polytechnic School of Engineering</strong> and maker of many things, took
-										notice and asked me to help her create the <strong>Code Liberation
-										Foundation, a group that teaches women to program video games</strong>.
-										After I helped to start Code Liberation, people really started to pay
-										attention. I also got better at making games through the process of
-										teaching game development. Some say "those who can't,
-										teach," but I think those who can should be the ones who teach.</p>
-									</td>
-								</tr>
-								<tr>
-									<td class="section">
-										<h2 >Incubator News</h2>
-										<h3 ><a target="_blank" href="http://www.nytimes.com/2015/05/31/nyregion/howtanya-menendez-and-matthew-burnett-founders-of-makers-row-spend-their-sundays.html?smprod=nytcore-ipad&amp;smid=nytcore-ipad-share&amp;_r=0" >How
-										Tanya Menendez and Matthew Burnett, Founders of Maker’s Row, Spend
-										Their Sundays</a></h3>
-										<p style="margin:0;font-weight:bold">New York Times</p>
-										<p style="margin-top:0.5em"><strong>Tanya Menendez and Matthew
-										Burnett</strong> are the founders of <strong>Maker's Row, a Brooklyn
-										start-up that connects entrepreneurs with American manufacturers</strong>.
-										Forbes magazine recently included Ms. Menendez, 27, in its 30 under 30
-										issue. Mr. Burnett, 30, is a former watch designer who worked for Marc
-										Jacobs and DKNY. Maker’s Row is their second company: In 2011, Ms.
-										Menendez left a job at Goldman Sachs to join Mr. Burnett at a leather goods
-										line he had started called the Brooklyn Bakery. A year before that, she
-										joined him romantically. The two met through friends at a Roots concert in
-										Prospect Park. They live in a one-bedroom apartment near Borough Hall in
-										Downtown Brooklyn with their dog, Mr. Pickles.</p>
-									</td>
-								</tr>
-								<tr>
-									<td class="section">
-										<h2 >Social Media</h2>
-										<h3 >Twitter</h3>
-										<div style="border:1px solid #ddd;border-radius:3px;padding:15px;max-width:500px">
-										<p style="margin-bottom:0.5em"><img src="https://ci4.googleusercontent.com/proxy/x2F_lDJp48Z2uyBAtIDNYaHLqHXLEC4e9ERPsr_xulS5w5XZ2NV-HnKkBr8qQNvrnb9WTk_5GiHXeh5yEzpTQzuMPlSKvuP2pG4XYGvgVTMYoGntUr24YT2ztkEoc-tXUiz4DDeqe1V2nGU=s0-d-e1-ft#http://research.poly.edu/~emailmarket/admin/temp/newsletters/1957/cfiv6g2ugaeui5w.png" width="100%" height="auto" alt="cfiv6g2ugaeui5w.png" title="cfiv6g2ugaeui5w.png" class="CToWUd a6T" tabindex="0"><div class="a6S" dir="ltr" style="opacity: 0.01; left: 483px; top: 2609.625px;"><div id=":sc" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" role="button" tabindex="0" aria-label="Download attachment " data-tooltip-class="a1V" data-tooltip="Download"><div class="aSK J-J5-Ji aYr"></div></div></div></p>
-										<p style="margin:0.5em 0">Our grads have a 92% employment rate and $60k
-										mean salary after graduation.</p>
-										<p style="margin-top:0.5em"><a target="_blank" href="https://twitter.com/hashtag/congratagradnyu?src=hash" >#congratagradnyu</a></p>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td></td>
-								</tr>
-							</tbody>
-						</table>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+	
+	<div id="main" ng-app="newsApp">
+		<div class="header">
+			<img src="https://ci4.googleusercontent.com/proxy/J5H7s6ByCuKyEi34upkJjSoIC-5-76F4p9JMauXj1ttM73u1X0cECHTls1GpGiqEixhRW8iQ7YsPLhEjGU8Dz5Jiyw7aDtGTHJSm5ZdPcEoybuXTQ6iUoWkF2yw6Qd8eYsRbTQKKPxHabdLU=s0-d-e1-ft#http://research.poly.edu/~emailmarket/admin/temp/templates/20/nyu_engineering_logo.png" width="223" height="30" alt="nyu_engineering_logo.png" title="nyu_engineering_logo.png" class="headr-img">
+		</div>
+		<div class = "section" ng-controller="newsController">
+			<h2 id="section">{{sections.section}}</h2>
+			<div class = "article" ng-repeat="article in sections.articles">
+				<h3 id="title"><a href="{{article.link}}">{{article.title}}</a></h3>
+				<p id="publisher">{{article.publisher}}</p>
+				<p id="orig_title">{{article.orig_title}}</p>
+				<p id="descr" ng-bind-html="article.description"></p>
+			</div>
+			<div ng-mouseenter="showEditor=true" ng-mouseleave="showEditor=false">
+			    <div ng-show="showEditor" ng-hide="!showEditor" ng-include src="'editor.html'"></div>
+			</div>
+		</div>
 	</div>
 	
 
 	<!-- Jquery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	
-	
+	<!-- modules -->
+	<script src="js/app.js"></script>
+	<!-- controllers -->
+	<script src="js/newsletter.js"></script>
 </body>
 </html>
