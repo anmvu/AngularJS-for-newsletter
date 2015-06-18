@@ -5,7 +5,7 @@
 	<title>Newsletter</title>
 	<!-- stylesheet -->
 	<link href="css/news.css" rel="stylesheet">
-	<link href="css/xeditable.css" rel="stylesheet">
+	<!--<link href="css/xeditable.css" rel="stylesheet">
 	<!-- Javascript -->
 	<!--<script src="angular/angular.js"></script>
 	<script src="angular/angular.min.js"></script>-->
@@ -29,15 +29,58 @@
 			<img src="https://ci4.googleusercontent.com/proxy/J5H7s6ByCuKyEi34upkJjSoIC-5-76F4p9JMauXj1ttM73u1X0cECHTls1GpGiqEixhRW8iQ7YsPLhEjGU8Dz5Jiyw7aDtGTHJSm5ZdPcEoybuXTQ6iUoWkF2yw6Qd8eYsRbTQKKPxHabdLU=s0-d-e1-ft#http://research.poly.edu/~emailmarket/admin/temp/templates/20/nyu_engineering_logo.png" width="223" height="30" alt="nyu_engineering_logo.png" title="nyu_engineering_logo.png" class="headr-img">
 		</div>
 		<div class = "section" ng-controller="newsController">
-			<h2 id="section">{{sections.section}}</h2>
+			<h2 id="section" editable-text="sections.section">{{sections.section}}</h2>
 			<div class = "article" ng-repeat="article in sections.articles">
-				<h3 id="title"><a href="{{article.link}}">{{article.title}}</a></h3>
-				<p id="publisher">{{article.publisher}}</p>
-				<p id="orig_title">{{article.orig_title}}</p>
-				<p id="descr" ng-bind-html="article.description"></p>
+				<h3 id="title" editable-text="article.title"><a editable-text="article.link" href="{{article.link}}">{{article.title}}</a></h3>
+				<p id="publisher" editable-text="article.publisher">{{article.publisher}}</p>
+				<p id="orig_title" editable-text="article.orig_title">{{article.orig_title}}</p>
+				<p id="descr" ng-bind-html="article.description" editable-text="article.description"></p>
 			</div>
-			<div ng-mouseenter="showEditor=true" ng-mouseleave="showEditor=false">
-			    <div ng-show="showEditor" ng-hide="!showEditor" ng-include src="'editor.html'"></div>
+			<div ng-mouseenter="showEditor=true" ng-mouseleave="showEditor=false" class="editor">
+			    <div id="visibleEditor" ng-show="showEditor" >
+			    	<div>
+						<h3>Add article</h3>
+						<div>
+							<form role="form" ng-submit="addArticle()">
+								<div>
+									<label for="articleName">Article Name</label>
+									<div>
+										<input type="text" ng-model="sections.articles.temp.title" placeholder="Faculty News">
+									</div>
+								</div>
+								<div>
+									<label for="articleLink"> Article Link</label>
+									<div>
+										<input type="text"ng-model="sections.articles.temp.link" placeholder="htt://engineering.nyu.edu">
+									</div>
+								</div>
+								<div>
+									<label for="articlePub"> Publisher </label>
+									<div>
+										<input type="text"ng-model="sections.articles.temp.publisher" placeholder="NYU">
+									</div>
+								</div>
+								<div>
+									<label for="articleOrgTitle"> Original Title</label>
+									<div>
+										<input type="text"ng-model="sections.articles.temp.orig_title" placeholder="Top 5">
+									</div>
+								</div>
+								<div>
+									<label for="articleDescr"> Description</label>
+									<div>
+										<input type="text"ng-model="sections.articles.temp.description" placeholder="We are number 1!">
+									</div>
+								</div>
+								<div>
+									<div>
+										<button type="submit">Add</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+			    </div>
 			</div>
 		</div>
 	</div>
