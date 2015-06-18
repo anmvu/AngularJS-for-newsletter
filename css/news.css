@@ -1,3 +1,9 @@
+#all{
+	max-width: 930px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #convenient-buttons{
 	background: #57068c;
 	padding: 5px;
@@ -74,19 +80,36 @@ h2{
 }
 
 #descr{
-	margin-top:0.5em
+	margin-top:0.5em;
 }
 
-
-
 .editor{
-	height: 2px;
+	padding-bottom: 20px;
 }
 
 #visibleEditor{
-	height:auto;
-	white-space: normal;
-	margin: auto;
-	padding:auto;
+	width: 100%;
+	max-width: 800px;
 	display: inline-block;
+}
+
+.form{
+	display:block;
+	padding: 5px;
+}
+
+.input,.label {
+	display:inline-block;
+	position:relative;
+}
+
+.descr{
+	max-width: 800px;
+	width: 100%;
+}
+
+#json{
+	display:none;
+	max-width: 800px;
+	width: 800px;
 }
