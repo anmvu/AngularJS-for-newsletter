@@ -1,5 +1,5 @@
 //Angular!
-var newsletter = angular.module('newsApp',['ngSanitize','xeditable']);
+var newsletter = angular.module('newsApp',['ngSanitize','xeditable','ngCkeditor']);
 
 newsletter.run(function(editableOptions) {
       editableOptions.theme = 'default';
@@ -23,33 +23,53 @@ newsletter.controller('newsController',function($scope){
 			}
 		]
 	};
-	
+
+	$scope.editorOptions={
+		language:'en',
+		uiColor: '#000000'
+	};
+
+
 	//Add Section
 	$scope.addSection = function(){
 		$scope.news.sections.temp={
 			title: "Section Title",
 			articles:[
-				{
-					title:"Article Title",
-					link:"Link",
-					publisher: "Publisher",
-					orig_title: "Original Title",
-					description: "Description"
-				}
+			// 	{
+			// 		title:"Article Title",
+			// 		link:"Link",
+			// 		publisher: "Publisher",
+			// 		orig_title: "Original Title",
+			// 		description: "Description"
+			// 	}
 			]
 		};
 		$scope.news.sections.push(this.news.sections.temp);
 	};
+
+	//Delete Section
+	$scope.deleteSection = function(index){
+		$scope.news.sections[index].splice(index,1);
+	};
 	
+	//addArticle
 	$scope.addArticle = function(index){
-		console.log(index);
 		$scope.news.sections[index].articles.push($scope.news.sections[index].articles.temp);
 		$scope.news.sections[index].articles.temp={};
+	};
+
+	//deleteArticle
+	$scope.deleteArticle = function(index,index2){
+		$scope.news.sections[index].articles.splice(index2,1);
 	};
 	
 });
 
-
+// newsletter.directive('editUrl',function(){
+// 	var editTemplate = '<div class="edit-template">'+
+// 		'<div ng-hide="view.editorEnabled">' +
+// 		'{{value}}' + '<a ng-click=enableEditor()"> Edit </a>'
+// });
 
 // Menu bar
 
@@ -70,6 +90,3 @@ function selectText(element){
    	}
 
 }
-
-//Send to Server
-
