@@ -44,35 +44,35 @@
 				<div ng-mouseenter="showEditor=true" ng-mouseleave="showEditor=false" class="editor">
 				    <div id="visibleEditor" ng-show="showEditor">
 				    	<div id="box">
-							<h2 id="editor-header">Add article</h2>
+							<h2 id="editor-header">Add article </h2>
 							<div>
 								<form role="form" ng-submit="addArticle($index)">
 									<div class="form">
-										<label for="articleName" class="label"><h3>Article Name</h3></label>
+										<label for="articleName" class="label"><h3>Article Name </h3></label>
 										<div class="input">
 											<input type="text" ng-model="section.articles.temp.title" placeholder="Faculty News">
 										</div>
 									</div>
 									<div class="form">
-										<label for="articleLink" class="label"><h3> Article Link</h3></label>
+										<label for="articleLink" class="label"><h3> Article Link </h3></label>
 										<div class="input">
 											<input type="url"ng-model="section.articles.temp.link" placeholder="http://engineering.nyu.edu">
 										</div>
 									</div>
 									<div class="form">
-										<label for="articlePub" class="label"><h3> Publisher</h3> </label>
+										<label for="articlePub" class="label"><h3> Publisher </h3> </label>
 										<div class="input">
 											<input type="text"ng-model="section.articles.temp.publisher" placeholder="NYU">
 										</div>
 									</div>
 									<div class="form">
-										<label for="articleOrgTitle" class="label"><h3> Original Title</h3></label>
+										<label for="articleOrgTitle" class="label"><h3> Original Title </h3></label>
 										<div class="input" class="label">
 											<input type="text"ng-model="section.articles.temp.orig_title" placeholder="Top 5">
 										</div>
 									</div>
 									<div class="form">
-										<label for="articleDescr" class="label"><h3> Description</h3></label>
+										<label for="articleDescr" class="label" id="descr-label"><h3> Description </h3></label>
 										<div class="input" class="descr">
 											<textarea ckeditor="editorOptions" ng-model="section.articles.temp.description" > We are number 1! </textarea>
 										</div>
