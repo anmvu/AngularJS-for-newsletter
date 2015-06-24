@@ -49,7 +49,7 @@ newsletter.controller('newsController',function($scope){
 
 	//Delete Section
 	$scope.deleteSection = function(index){
-		$scope.news.sections[index].splice(index,1);
+		$scope.news.sections.splice(index,1);
 	};
 	
 	//addArticle
