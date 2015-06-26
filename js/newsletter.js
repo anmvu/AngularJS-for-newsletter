@@ -88,6 +88,5 @@ function selectText(element){
        range.selectNodeContents( node );
        window.getSelection().removeAllRanges();
        window.getSelection().addRange( range );
-	   console.log('SELECTED!');
    	}
 }
