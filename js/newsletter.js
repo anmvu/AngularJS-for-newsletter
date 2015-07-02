@@ -63,6 +63,10 @@ newsletter.controller('newsController',function($scope){
 		$scope.news.sections[index].articles.splice(index2,1);
 	};
 	
+	$scope.update = function(){
+		return $http.post('/updateSection',$scope.news);
+	};
+	
 });
 
 // newsletter.directive('editUrl',function(){

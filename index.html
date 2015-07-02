@@ -17,6 +17,10 @@
 	<script src="ckeditor/ckeditor.js"></script>
 	<script src="js/xeditable.min.js"></script>
 	<script src="js/ng-ckeditor.js"></script>
+	<?php
+	    $editor_data = $_POST[ 'descr-editor' ];
+		$add_data = $_POST['add-editor']
+	?>
 </head>
 
 <body ng-controller="newsController">
@@ -34,12 +38,29 @@
 				<img src="https://ci4.googleusercontent.com/proxy/J5H7s6ByCuKyEi34upkJjSoIC-5-76F4p9JMauXj1ttM73u1X0cECHTls1GpGiqEixhRW8iQ7YsPLhEjGU8Dz5Jiyw7aDtGTHJSm5ZdPcEoybuXTQ6iUoWkF2yw6Qd8eYsRbTQKKPxHabdLU=s0-d-e1-ft#http://research.poly.edu/~emailmarket/admin/temp/templates/20/nyu_engineering_logo.png" width="223" height="30" alt="nyu_engineering_logo.png" title="nyu_engineering_logo.png" class="headr-img">
 			</div>
 			<div class = "section" ng-repeat="section in news.sections">
-				<h2 id="section" editable-text="section.title">{{section.title}}</h2>
+				<h2  editable-text="section.title"><a onaftersave="update()" id="section">{{section.title}}</a></h2>
 				<div ng-mouseenter="showUrl=true" ng-mouseleave="showUrl=false" class="delete">
 					<div ng-show="showUrl"  id="delete">
 						<button type="submit" ng-click="deleteSection($index)"> Delete </button>
 					</div>
 				</div>
+				
+				<div class = "article" ng-repeat="article in section.articles">
+					<div class="title">
+						<h3 editable-text="article.title" id="title" ><a target="_blank" ng-href="{{article.link}}" onaftersave="update()" id="title-link">{{article.title}}</a></h3>
+						<div ng-mouseenter="showButtons=true" ng-mouseleave="showButtons=false" class="edit-url">
+							<div ng-show="showButtons"  id="edit-url">
+								<span editable-text="article.link" e-form="textBtnForm" onaftersave="update()"></span>
+								<button ng-click="textBtnForm.$show()">Edit Url </button>
+								<button type="submit" ng-click="deleteArticle($parent.$index,$index)"> Delete </button>
+							</div>
+						</div>
+					</div>
+					<p id="publisher" editable-text="article.publisher" ><a onaftersave="update()">{{article.publisher}}</a></p>
+					<p id="orig_title" editable-text="article.orig_title"><a onaftersave="update()">{{article.orig_title}}</a></p>
+					<p id="descr" ng-bind-html="article.description" ng-model="article.description" ckeditor="editorOptions" id="descr-editor"><a onaftersave="update()">{{article.description}}</a></p>
+				</div>
+				
 				<div ng-mouseenter="showEditor=true" ng-mouseleave="showEditor=false" class="editor">
 				    <div id="visibleEditor" ng-show="showEditor">
 				    	<div id="box">
@@ -71,14 +92,16 @@
 										</div>
 									</div>
 									<div class="form">
-										<label for="articleDescr" class="label" id="descr-label"><h3> Description </h3></label>
+										<div id="descr-label">
+											<label for="articleDescr" class="label"><h3> Description </h3></label>
+										</div>
 										<div class="input" class="descr">
-											<textarea ckeditor="editorOptions" ng-model="section.articles.temp.description" > We are number 1! </textarea>
+											<textarea ckeditor="editorOptions" ng-model="section.articles.temp.description" id="add-editor"> We are number 1! </textarea>
 										</div>
 									</div>
 									<div>
 										<div>
-											<button type="submit" id="add">Add</button>
+											<button type="submit" id="add" onaftersave="update()">Add</button>
 										</div>
 									</div>
 								</form>
@@ -86,20 +109,7 @@
 						</div>
 				    </div>
 				</div>
-				<div class = "article" ng-repeat="article in section.articles">
-					<div class="title">
-						<a target="_blank" href="{{article.link}}" editable-url="article.link" id="title"><h3 editable-text="article.title">{{article.title}}</h3></a>
-						<div ng-mouseenter="showButtons=true" ng-mouseleave="showButtons=false" class="edit-url">
-							<div ng-show="showButtons"  id="edit-url">
-								<button type= "button">Edit Url </button>
-								<button type="submit" ng-click="deleteArticle($parent.$index,$index)"> Delete </button>
-							</div>
-						</div>
-					</div>
-					<p id="publisher" editable-text="article.publisher">{{article.publisher}}</p>
-					<p id="orig_title" editable-text="article.orig_title">{{article.orig_title}}</p>
-					<p id="descr" ng-bind-html="article.description" ng-model="article.description" ckeditor="editorOptions">{{article.description}}</p>
-				</div>
+				
 			</div>
 		</div>
 		<div id="json" ng-show="showJson">
