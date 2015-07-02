@@ -25,6 +25,7 @@
 
 <body ng-controller="newsController">
 		<!-- Menu Bar -->
+		<div id="all">
 		<div id="menu-bar">
 			<ul id="convenient-buttons">
 				<li id="add-section"><a href=# id="add-section" ng-click="addSection()">Add Section</a></li>
@@ -111,10 +112,14 @@
 				</div>
 				
 			</div>
+			
+			<div id="json" ng-show="showJson">
+				<p>{{news || json}}</p>
+			</div>
+			
 		</div>
-		<div id="json" ng-show="showJson">
-			<p>{{news || json}}</p>
-		</div>
+	</div>
+		
 
 </body>
 </html>
