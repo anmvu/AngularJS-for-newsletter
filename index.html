@@ -24,8 +24,8 @@
 </head>
 
 <body ng-controller="newsController">
-		<!-- Menu Bar -->
 	<div id="all">
+		<!-- Menu Bar -->
 		<div id="menu-bar">
 			<ul id="convenient-buttons">
 				<li id="add-section"><a href=# id="add-section" ng-click="addSection()">Add Section</a></li>
@@ -35,9 +35,12 @@
 		</div>
 	
 		<div id="main">
+			
 			<div class="header">
 				<img src="https://ci4.googleusercontent.com/proxy/J5H7s6ByCuKyEi34upkJjSoIC-5-76F4p9JMauXj1ttM73u1X0cECHTls1GpGiqEixhRW8iQ7YsPLhEjGU8Dz5Jiyw7aDtGTHJSm5ZdPcEoybuXTQ6iUoWkF2yw6Qd8eYsRbTQKKPxHabdLU=s0-d-e1-ft#http://research.poly.edu/~emailmarket/admin/temp/templates/20/nyu_engineering_logo.png" width="223" height="30" alt="nyu_engineering_logo.png" title="nyu_engineering_logo.png" class="headr-img">
 			</div>
+			
+			<!--Sections-->
 			<div class = "section" ng-repeat="section in news.sections">
 				<h2  editable-text="section.title"><a onaftersave="update()" id="section">{{section.title}}</a></h2>
 				<div ng-mouseenter="showUrl=true" ng-mouseleave="showUrl=false" class="delete">
@@ -46,6 +49,7 @@
 					</div>
 				</div>
 				
+				<!-- Articles-->
 				<div class = "article" ng-repeat="article in section.articles">
 					<div class="title">
 						<h3 editable-text="article.title" id="title" ><a target="_blank" ng-href="{{article.link}}" onaftersave="update()" id="title-link">{{article.title}}</a></h3>
@@ -62,6 +66,7 @@
 					<p id="descr" ng-bind-html="article.description" ng-model="article.description" ckeditor="editorOptions" id="descr-editor"><a onaftersave="update()">{{article.description}}</a></p>
 				</div>
 				
+				<!-- Adding an Article -->
 				<div ng-mouseenter="showEditor=true" ng-mouseleave="showEditor=false" class="editor">
 				    <div id="visibleEditor" ng-show="showEditor">
 				    	<div id="box">
@@ -113,6 +118,7 @@
 				
 			</div>
 			
+			<!--JSON-->
 			<div id="json" ng-show="showJson">
 				<p>{{news || json}}</p>
 			</div>
