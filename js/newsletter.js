@@ -26,9 +26,11 @@ newsletter.controller('newsController',function($scope){
 
 	$scope.editorOptions={
 		language:'en',
-		uiColor: '#000000'
+		uiColor: '#000000',
+		extraPlugins:'inlinesave'
 	};
 
+	// $scope.ckeditordata = CKEDITOR.instances.tbDetails.getData();
 
 	//Add Section
 	$scope.addSection = function(){
