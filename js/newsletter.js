@@ -28,6 +28,24 @@ newsletter.controller('newsController',function($scope){
 		language:'en',
 		uiColor: '#000000',
 		extraPlugins:'inlinesave'
+		// return{
+		// require: '?ngModel',
+		// link: function(scope, elm, attr, ngModel){
+		// 	var ck = CKEDITOR.replace(elm[0]);
+
+		// 	if (!ngModel) return;
+
+		// 	ck.on('pasteState',function(){
+		// 		scope.$apply(function(){
+		// 			ngModel.$setViewValue(ck.getData());
+		// 		});
+		// 	});
+
+		// 	ngModel.$render = function(value) {
+		// 		ck.setData(ngModel.$viewValue);
+		// 	};
+		// }
+	//}
 	};
 
 	// $scope.ckeditordata = CKEDITOR.instances.tbDetails.getData();
@@ -71,10 +89,25 @@ newsletter.controller('newsController',function($scope){
 	
 });
 
-// newsletter.directive('editUrl',function(){
-// 	var editTemplate = '<div class="edit-template">'+
-// 		'<div ng-hide="view.editorEnabled">' +
-// 		'{{value}}' + '<a ng-click=enableEditor()"> Edit </a>'
+// newsletter.directive('ckEditor',function(){
+// 	return{
+// 		requre: '?ngModel',
+// 		link: function(scope, elm, attr, ngModel){
+// 			var ck = CKEDITOR.replace(elm[0]);
+
+// 			if (!ngModel) return;
+
+// 			ck.on('pasteState',function(){
+// 				scope.$apply(function(){
+// 					ngModel.$setViewValue(ck.getData());
+// 				});
+// 			});
+
+// 			ngModel.$render = function(value) {
+// 				ck.setData(ngModel.$viewValue);
+// 			};
+// 		}
+// 	};
 // });
 
 // Menu bar
