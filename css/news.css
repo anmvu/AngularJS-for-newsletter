@@ -82,7 +82,7 @@ a{
 	display: inline-block;
 }
 
-.delete{
+#delete-section{
 	float: right;
 	height: 18px;
 	max-width: 764px;
@@ -94,7 +94,7 @@ a{
 	float: right;
 }
 
-.editor{
+#editor{
 	padding-bottom: 5px;
 }
 
