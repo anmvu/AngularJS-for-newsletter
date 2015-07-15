@@ -5,9 +5,10 @@ newsletter.run(function(editableOptions) {
       editableOptions.theme = 'default';
 });
 
-newsletter.controller('newsController',function($scope){
-	
+newsletter.controller('newsController',function($scope,$http){
+	var date = new Date();
 	$scope.news =  {
+		save: date.toLocaleDateString(),
 		sections: [
 			{
 				title: "Faculty",
@@ -67,6 +68,23 @@ newsletter.controller('newsController',function($scope){
 	$scope.update = function(){
 		return $http.post('/updateSection',$scope.news);
 	};
+	
+	$scope.sendJSON = function(){
+		var stuff = angular.toJson($scope.news);
+		var json= JSON.stringify(stuff);
+		console.log(json);
+		$http({
+			method:'POST',
+			url:'send.php',
+			headers:{'Content-Type':'application/x-www-form-urlencoded'},
+			data: json,
+		}).success(function(data,status,headers,config){
+			console.log("success");
+			$scope.data=data;
+		}).error(function(data,status,headers,config){
+			$scope.status=status;
+		});
+	};	
 	
 });
 

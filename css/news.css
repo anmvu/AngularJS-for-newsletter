@@ -21,7 +21,7 @@ a{
 	margin-right: auto;
 }
 
-#convenient-buttons{
+#editor-buttons{
 	background: #57068c;
 	padding: 5px;
 	margin-right: 20px;
@@ -29,17 +29,17 @@ a{
 	display: inline-block;
 }
 
-#convenient-buttons li{
+#editor-buttons li{
 	margin: 10px;
 	list-style-type: none;
 }
 
-#convenient-buttons .active a, #convenient-buttons li:hover > a {
+#editor-buttons .active a, #editor-buttons li:hover > a {
   background: #9E0BFF;
   color: #FFFFFF;
 }
 
-#convenient-buttons a{
+#editor-buttons a{
 	color: white;
 	text-decoration:none;
 }
