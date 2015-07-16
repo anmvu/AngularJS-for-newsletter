@@ -26,10 +26,12 @@
 			<ul id="editor-buttons">
 				<li id="add-section"><a href=# id="add-section" ng-click="addSection()">Add Section</a></li>
 				<li><a href=# id="copy" onclick="selectText('main')">Select All</a></li>
-				<li><a href=# id="export" ng-click="sendJSON()">Send JSON to Server</a><input ng-model="news.save"></li>
+				<li><a href=# id="export" ng-click="sendJSON()">Save</a></li>
 			</ul>
+			<div id="news-title">
+				<input type="text" ng-model="save" placeholder="Newsletter Title">
+			</div>
 		</div>
-	
 		<div id="main">
 			
 			<div class="header">
@@ -38,7 +40,7 @@
 			
 			<!--Sections-->
 			<div class = "section" ng-repeat="section in news.sections">
-				<h2  editable-text="section.title"><a onaftersave="update()" id="section">{{section.title}}</a></h2>
+				<h2  editable-text="section.title" id="section">{{section.title}}</h2>
 				<div ng-mouseenter="showUrl=true" ng-mouseleave="showUrl=false" id="delete-section">
 					<div ng-show="showUrl"  id="delete">
 						<button type="submit" ng-click="deleteSection($index)"> Delete </button>
@@ -51,15 +53,15 @@
 						<h3 editable-text="article.title" id="title" ><a target="_blank" ng-href="{{article.link}}" onaftersave="update()" id="title-link">{{article.title}}</a></h3>
 						<div ng-mouseenter="showButtons=true" ng-mouseleave="showButtons=false" class="edit-url">
 							<div ng-show="showButtons"  id="edit-url">
-								<span editable-text="article.link" e-form="textBtnForm" ><a onaftersave="update()"></a></span>
+								<span editable-text="article.link" e-form="textBtnForm" ></span>
 								<button ng-click="textBtnForm.$show()">Edit Url </button>
 								<button type="submit" ng-click="deleteArticle($parent.$index,$index)"> Delete </button>
 							</div>
 						</div>
 					</div>
-					<p id="publisher" editable-text="article.publisher" ><a onaftersave="update()">{{article.publisher}}</a></p>
-					<p id="orig_title" editable-text="article.orig_title"><a onaftersave="update()"><i>{{article.orig_title}}</i></a></p>
-					<a onaftersave="update()"><p id="descr" ng-model="article.description" ckeditor="editorOptions">{{article.description}}</p></a>
+					<p id="publisher" editable-text="article.publisher" >{{article.publisher}}</p>
+					<p id="orig_title" editable-text="article.orig_title"><i>{{article.orig_title}}</i></a></p>
+					<p id="descr" ng-model="article.description" ckeditor="editorOptions">{{article.description}}</p>
 				</div>
 				
 				<!-- Adding an Article -->
@@ -94,11 +96,9 @@
 										</div>
 									</div>
 									<div class="form">
-										<div id="descr-label">
-											<label for="articleDescr" class="label"><h3> Description </h3></label>
-										</div>
-										<div class="input" class="descr">
-											<textarea ckeditor="editorOptions" ng-model="section.articles.temp.description" id="add-editor"> We are number 1! </textarea>
+										<label for="articleDescr" class="label" id="descr-label"><h3> Description </h3></label>
+										<div class="input descr">
+											<p ckeditor="editorOptions" ng-model="section.articles.temp.description" id="add-editor"> We are number 1! </p>
 										</div>
 									</div>
 									<div>

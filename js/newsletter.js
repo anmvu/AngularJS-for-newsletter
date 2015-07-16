@@ -7,18 +7,18 @@ newsletter.run(function(editableOptions) {
 
 newsletter.controller('newsController',function($scope,$http){
 	var date = new Date();
+	$scope.save = date.toLocaleDateString();
 	$scope.news =  {
-		save: date.toLocaleDateString(),
 		sections: [
 			{
 				title: "Faculty",
 				articles: [
 					{
-						title: "In Memoriam: Eli Pearce",
+						title: 'In Memoriam: Eli Pearce',
 						link:'http://engineering.nyu.edu/news/2015/05/29/memoriam-eli-pearce',
-						publisher: "NYU Newsroom",
-						orig_title:"   ",
-						description: "When <strong>Professor Eli Pearce</strong> passed away on May 19, 2015, a slice of Poly history passed along with him. Pearce had been affiliated with the school, then known as the Polytechnic Institute of Brooklyn, since the mid-1950s, when he conducted his doctoral studies in chemistry here. As a student, he learned with such luminaries as Herman Frances Mark, who is often called the Father of Polymer Science, and Charles Overberger, another influential chemist who helped establish the study of polymers as a major sub-discipline."
+						publisher: 'NYU Newsroom',
+						orig_title:'   ',
+						description:"When <strong>Professor Eli Pearce</strong> passed away on May 19, 2015, a slice of Poly history passed along with him. Pearce had been affiliated with the school, then known as the Polytechnic Institute of Brooklyn, since the mid-1950s, when he conducted his doctoral studies in chemistry here. As a student, he learned with such luminaries as Herman Frances Mark, who is often called the Father of Polymer Science, and Charles Overberger, another influential chemist who helped establish the study of polymers as a major sub-discipline."
 					}
 				]
 			}
@@ -70,20 +70,19 @@ newsletter.controller('newsController',function($scope,$http){
 	};
 	
 	$scope.sendJSON = function(){
-		var stuff = angular.toJson($scope.news);
-		var json= JSON.stringify(stuff);
-		console.log(json);
+		var json= angular.toJson($scope.news);
 		$http({
 			method:'POST',
 			url:'send.php',
 			headers:{'Content-Type':'application/x-www-form-urlencoded'},
-			data: json,
+			data:$scope.save + " &JSON: " + json,
 		}).success(function(data,status,headers,config){
-			console.log("success");
+			// console.log("success");
 			$scope.data=data;
 		}).error(function(data,status,headers,config){
 			$scope.status=status;
 		});
+		// $http.post("/send.php", {params:{"title":$scope.save, "json":json}})
 	};	
 	
 });
