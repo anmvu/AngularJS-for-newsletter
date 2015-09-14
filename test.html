@@ -1,0 +1,121 @@
+<html ng-app="newsApp">
+	<head>
+		<title>Newsletter</title>
+		<link href="css/news.css" rel="stylesheet">
+		<link href="css/xeditable.css" rel="stylesheet">
+		<link href="css/ng-ckeditor.css" rel="stylesheet">
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-sanitize.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/editor.js"></script>
+		<script src="ckeditor/ckeditor.js"></script>
+		<script src="js/xeditable.min.js"></script>
+		<script src="js/ng-ckeditor.min.js"></script>
+	</head>
+
+	<body ng-controller="newsController">
+		<div id="all">
+			<div id="menu-bar">
+				<ul id="editor-buttons">
+					<li><a href="/~anvu">Main</a></li>
+					<li id="add-section"><a href=# id="add-section" ng-click="addSection()">Add Section</a></li>
+					<li><a href=# ng-click="showMedia=true" id="add-media">Add Media Section</a></li>
+					<li><a href=# id="export" ng-click="sendJSON()">Save</a></li>
+				</ul>
+				<div id="news-title">
+					<h3 type="text"editable-text="save" placeholder="Newsletter Title">{{save}}</h2>
+				</div>
+			</div>
+			<div id="main">
+				<div class="header">
+					<img src="https://ci4.googleusercontent.com/proxy/J5H7s6ByCuKyEi34upkJjSoIC-5-76F4p9JMauXj1ttM73u1X0cECHTls1GpGiqEixhRW8iQ7YsPLhEjGU8Dz5Jiyw7aDtGTHJSm5ZdPcEoybuXTQ6iUoWkF2yw6Qd8eYsRbTQKKPxHabdLU=s0-d-e1-ft#http://research.poly.edu/~emailmarket/admin/temp/templates/20/nyu_engineering_logo.png" width="223" height="30" alt="nyu_engineering_logo.png" title="nyu_engineering_logo.png" class="headr-img">
+				</div>
+				<div class = "section" ng-repeat="section in news.sections">
+					<h2  editable-text="section.title" id="section">{{section.title}}</h2>
+					<div ng-mouseenter="showUrl=true" ng-mouseleave="showUrl=false" id="delete-section">
+						<div ng-show="showUrl" id="delete">
+							<button type="submit" ng-click="deleteSection($index)"> Delete </button>
+						</div>
+					</div>
+					<div class = "article" ng-repeat="article in section.articles">
+						<div class="title">
+							<h3 editable-text="article.title" id="title" >
+							<a target="_blank" ng-href="{{article.link}}" id="title-link">{{article.title}}</a>
+							</h3>
+						</div>
+						<div ng-mouseenter="showButtons=true" ng-mouseleave="showButtons=false" class="edit-url">
+							<div ng-show="showButtons"  id="edit-url">
+								<span editable-text="article.link" e-form="textBtnForm" ></span>
+								<button ng-click="textBtnForm.$show()">Edit Url </button>
+								<button type="submit" ng-click="deleteArticle($parent.$index,$index)"> Delete </button>
+							</div>
+						</div>
+					</div>
+					<p id="publisher" editable-text="article.publisher" >{{article.publisher}}</p>
+					<p id="orig_title" editable-text="article.orig_title"><i>{{article.orig_title}}</i></a></p>
+					<p id="descr" ng-model="article.description" ckeditor="editorOptions">{{article.description}}</p>
+				</div>
+				<div class="section" ng-show="(news.medias).length || showMedia">
+					<h2 id="section">Social Media</h2>
+					<div ng-mouseenter="showMediaButtons=true" ng-mouseleave="showMediaButtons=false" id="delete-media">
+						<div ng-show="showMediaButtons" id="delete">
+							<button type="submit" ng-click="addMediaSource()">Add Media Source</button>
+							<button type="submit" ng-click="deleteMedia()"> Delete </button>
+						</div>
+					</div>
+					<div class='media' ng-repeat= 'media in news.medias'>
+						<p id = 'media-source' editable-text="media.title" class="title"> {{media.title}} </p>
+						<div ng-mouseenter="showUrl=true" ng-mouseleave="showUrl=false" id="delete-media">
+							<div ng-show="showUrl" id="delete">
+								<button type="submit" ng-click="deleteMediaSource($index)"> Delete </button>
+							</div>
+						</div>
+						<div ng-repeat="item in media.items" id = "items">
+							<div id = "media" ng-repeat="item in media.items">
+								<img ng-src = "{{item.img}}" width="100%" editable-text="item.img">
+								<p id="descr" ng-model="item.description" ckeditor="editorOptions">{{item.description}}</p>
+							</div>
+							<div ng-mouseenter="showButtons=true" ng-mouseleave="showButtons=false" class="edit-media">
+								<div ng-show="showButtons"  id="edit-url">
+									<button type="submit" ng-click="deleteMediaItem($parent.$index,$index)"> Delete </button>
+								</div>
+							</div>
+						</div>
+						<div ng-mouseenter="showMediaEditor=true" ng-mouseleave="showMediaEditor=false" id="editor">
+							<div id="visibleEditor" ng-show="showMediaEditor">
+								<div id="box">
+									<h2 id="editor-header">Add Media Item</h2>
+									<div>
+										<form role="form" ng-submit="addMediaItem($index)">
+											<div class="form">
+												<label for="articleName" class="label">
+													<h3>Item Source </h3>
+												</label>
+												<div class="input">
+													<input type="url" ng-model="section.medias.temp.img" placeholder="image-source">
+												</div>
+											</div>
+											<div class="form">
+												<label for="articleDescr" class="label" id="descr-label">
+													<h3> Description </h3>
+												</label>
+												<div class="input descr">
+													<p ckeditor="editorOptions" ng-model="section.medias.temp.description" id="add-editor"> We are number 1! </p>
+												</div>
+											</div>
+											<div>
+												<div>
+													<button type="submit" id="add">Add</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

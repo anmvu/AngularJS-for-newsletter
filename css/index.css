@@ -8,17 +8,90 @@
 .header{
 	width:100%;
 	max-width:764px;
+ 	padding:15px 0px 15px 0px;
+	background-color:#57068c
 }
 
-.header{
-	padding:15px 0px 15px 0px;
-	background-color:#57068c;
-}
 
 .headr-img{
 	padding-left:15px;
 }
 
-#open{
-	padding:0;
+.clearfix:after {
+	display: block;
+	clear:both;
 }
+
+.menu-wrap{
+	width: 100%;
+}
+
+.menu{
+	width: 100%;
+	margin: 0px auto;
+}
+
+.menu li{
+	margin: 0px;
+	list-style: none;
+}
+
+.menu a{
+	transition: all linear 0.15s;
+}
+
+.menu li:hover > a, .menu .current-item > a {
+	text-decoration: none;
+}
+
+.menu {
+	line-height: 0%;
+}
+
+.menu > ul > li {
+	/*float: left;*/
+	/*display: inline-block;*/
+	position: relative;
+}
+
+.menu > ul > li > a {
+	padding: 10px 40px;
+	display: inline-block;
+
+}
+
+.menu li:hover .open{
+	z-index: 1;
+	opacity: 1;
+}
+
+.open{
+	width:100%;
+	padding: 10px 50px;
+	/*padding-left: 50px;*/
+	position: absolute;
+	top:100%;
+	/z-index: -1;/
+	/opacity: 0;/
+	/transition: opacity linear 0.15s;/
+}
+
+.open li{
+	display: block;
+}
+
+.open li a{
+	padding: 10px 30px;
+	display: block;
+}
+
+table{
+	cellpadding=20px;
+	cellspacing=40px;
+}
+
+td{
+	margin-right: auto;
+	margin-left: auto;
+}
+

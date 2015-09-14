@@ -1,0 +1,70 @@
+#editor-buttons{
+	background: #57068c;
+	padding: 5px;
+	margin-right: 20px;
+	border-radius: 10px;
+	display: inline-block;
+}
+
+#editor-buttons li{
+	margin: 10px;
+	list-style-type: none;
+}
+
+#editor-buttons .active a, #editor-buttons li:hover > a {
+  background: #9E0BFF;
+  color: #FFFFFF;
+}
+
+#editor-buttons a{
+	color: white;
+	text-decoration:none;
+}
+
+#menu,#container{
+	display:inline-block;
+	position:relative;
+}
+
+#menu{
+	height: 200px;
+	float: left;
+	width: 30%;
+	max-width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#menu-bar{
+	position: fixed;
+	width: 30%;
+}
+
+#html-div{
+	display:none;
+	width:30%;
+	max-width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+	float: left;
+}
+
+#container{
+	float: left;
+	width: 60%;
+	max-width: 800px;
+	margin-right:auto;
+	margin-left:auto;
+}
+
+#copy:hover #html-div{
+	display: block;
+}
+
+#news-title{
+	width: 90%;
+}
+
+span{
+	white-space: pre-wrap;
+}

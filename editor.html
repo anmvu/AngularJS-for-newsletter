@@ -50,7 +50,7 @@
 				<!-- Articles-->
 				<div class = "article" ng-repeat="article in section.articles">
 					<div class="title">
-						<h3 editable-text="article.title" id="title" ><a target="_blank" ng-href="{{article.link}}" onaftersave="update()" id="title-link">{{article.title}}</a></h3>
+						<h3 editable-text="article.title" id="title" ><a target="_blank" ng-href="{{article.link}}" id="title-link">{{article.title}}</a></h3>
 						<div ng-mouseenter="showButtons=true" ng-mouseleave="showButtons=false" class="edit-url">
 							<div ng-show="showButtons"  id="edit-url">
 								<span editable-text="article.link" e-form="textBtnForm" ></span>
@@ -98,12 +98,12 @@
 									<div class="form">
 										<label for="articleDescr" class="label" id="descr-label"><h3> Description </h3></label>
 										<div class="input descr">
-											<p ckeditor="editorOptions" ng-model="section.articles.temp.description" id="add-editor"> We are number 1! </p>
+											<textarea ckeditor="editorOptions" ng-model="section.articles.temp.description" id="add-editor"> We are number 1! </textarea>
 										</div>
 									</div>
 									<div>
 										<div>
-											<button type="submit" id="add" onaftersave="update()">Add</button>
+											<button type="submit" id="add">Add</button>
 										</div>
 									</div>
 								</form>

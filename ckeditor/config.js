@@ -31,4 +31,13 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Dialog windows are also simplified.
 	config.removeDialogTabs = 'link:advanced';
+	config.fillEmptyhBlocks = false;
+	config.enterMode = CKEDITOR.ENTER_BR;
+	config.basicEntities = false;
+	config.entities = false;
+	config.basicEntities = false;
+  	config.entities_greek = false; 
+  	config.entities_latin = false; 
+  	config.entities_additional = '';
+  	config.autoParagraph = false;
 };
